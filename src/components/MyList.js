@@ -30,7 +30,7 @@ const MyList = props => {
     } else{
         return (
             <>
-            
+            <button onClick={e => props.allSchools(e)}>View All Schools</button>
             <p>It Looks like you don't have any schools yet!</p>
             <h3>Add a School now!</h3>
             <button onClick={e => props.createSelected(e)}>Create A school</button>
