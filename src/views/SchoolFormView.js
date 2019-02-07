@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import { createSchool } from '../store/actions'
+import { createSchool, getSchools } from '../store/actions'
 import SchoolForm from '../components/SchoolForm';
 
 class SchoolFormView extends Component {
@@ -25,7 +26,10 @@ class SchoolFormView extends Component {
     createSchool = e => { 
         e.preventDefault()
         this.props.createSchool(this.state)
+        this.props.getSchools()
+        this.props.history.push('/schools')
     }
+    
     render(){
         return(
             <SchoolForm handleChanges={this.handleChanges} addInputs={this.state} createSchool={this.createSchool}/>
@@ -33,4 +37,4 @@ class SchoolFormView extends Component {
     }
 }
 
-export default connect(null, {createSchool})(SchoolFormView);
+export default withRouter(connect(null, {createSchool, getSchools})(SchoolFormView));

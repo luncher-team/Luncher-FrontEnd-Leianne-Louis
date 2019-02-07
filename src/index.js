@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import logger from "redux-logger";
 import thunk from "redux-thunk";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./store/reducers";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -10,7 +10,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, logger)));
 
 ReactDOM.render(
   <Provider store={store}>
