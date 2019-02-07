@@ -6,7 +6,7 @@ import { applyMiddleware, createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./store/reducers";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 

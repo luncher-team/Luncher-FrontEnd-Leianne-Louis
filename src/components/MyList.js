@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Jumbotron } from 'reactstrap';
 
 const MyList = props => {
     if(props.schools){
@@ -6,11 +7,10 @@ const MyList = props => {
         if(schools.length > 0) {
             return (
                 <>
-                    <button onClick={e => props.allSchools(e)}>View All Schools</button>
-
+                    <h2>My Schools</h2>
                     {schools.map(school => 
                       <div key={school.id}>
-                          <p>school: {school.name}</p>
+                          <h3>{school.name}</h3>
                           <p>about: {school.description}</p>
                           <p>address: {school.address}</p>
                           <p>{school.city}</p>
@@ -28,10 +28,17 @@ const MyList = props => {
     } else{
         return (
             <>
-            <button onClick={e => props.allSchools(e)}>View All Schools</button>
-            <p>It Looks like you don't have any schools yet!</p>
+            <Jumbotron>
+            <h2 className="display-3" >My Schools</h2>
+            <p className="lead" >It Looks like you don't have any schools yet!</p>
+            <hr className="my-2" />
             <h3>Add a School now!</h3>
-            <button onClick={e => props.createSelected(e)}>Create A school</button>
+            <p className="lead">
+            <Button onClick={e => props.createSelected(e)}>Create A school</Button>
+            </p>
+            
+            </Jumbotron>
+            
             </>
         )
     }

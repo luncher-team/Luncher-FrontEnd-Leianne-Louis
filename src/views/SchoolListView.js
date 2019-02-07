@@ -4,11 +4,12 @@ import { withRouter } from 'react-router-dom';
 import {  getSchools ,getSchool, deleteSchool } from '../store/actions';
 import MyList from '../components/MyList';
 import SchoolList from '../components/SchoolList';
+import '../styles/SchoolList.css';
 
 class SchoolListView extends Component {
     
     state = {
-        viewAllSchools: false
+        viewAllSchools: true
     }
     componentDidMount() {
         this.props.getSchools();
@@ -32,23 +33,17 @@ class SchoolListView extends Component {
     deleteSelected = (e, id) => {
         this.props.deleteSchool(id)
     }
-    mySchools = (e) => {
-        e.preventDefault()
-        this.setState({ viewAllSchools: false })
-    }
-    allSchools = (e) => {
-        e.preventDefault()
-        this.setState({ viewAllSchools: true })
-    }
+    
     render(){
+        console.log(this.props)
         this.props.schools && console.log(this.props.schools)
-        if(this.state.viewAllSchools){
+        if(this.props.viewAllSchools){
             return (
-                <SchoolList donateSelected={this.donateSelected} editSelected={this.editSelected} userId={this.props.userId} createSelected={this.createSelected} schools={this.props.schools} deleteSelected={this.deleteSelected} mySchools={this.mySchools}/>
+                <SchoolList donateSelected={this.donateSelected} editSelected={this.editSelected} userId={this.props.userId} createSelected={this.createSelected} schools={this.props.schools} deleteSelected={this.deleteSelected} mySchools={this.props.mySchools}/>
             )
         } else {
             return (
-                <MyList donateSelected={this.donateSelected} editSelected={this.editSelected} userId={this.props.userId} createSelected={this.createSelected} schools={this.props.schools} deleteSelected={this.deleteSelected} allSchools={this.allSchools}/>
+                <MyList donateSelected={this.donateSelected} editSelected={this.editSelected} userId={this.props.userId} createSelected={this.createSelected} schools={this.props.schools} deleteSelected={this.deleteSelected} allSchools={this.props.allSchools}/>
             )
         }
         

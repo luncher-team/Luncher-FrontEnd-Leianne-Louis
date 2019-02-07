@@ -38,14 +38,19 @@ const Authenticate = App => Login =>{
     signUpUser = ( e, info) => {
       e.preventDefault();
       console.log(info)
-      axios.post(`https://luncher-app-backend.herokuapp.com/api/register`, info)
+      if(info.username === '' || info.password === '' || info.email === '') {
+        alert('Please fill in all of the information')
+      } else {
+        axios.post(`https://luncher-app-backend.herokuapp.com/api/register`, info)
         .then(res => {
           this.setState({ loggedIn: true, token: res.data.token })
           localStorage.setItem("token", res.data.token)
           localStorage.setItem("userid", res.data.id)
           this.props.history.push('/schools')
         })
-        .catch(err => console.log(err))
+        .catch(err => alert('There is an issue with your sign up information please try again'))
+      }
+      
     }
     signUpSelected = (e) => {
       e.preventDefault();

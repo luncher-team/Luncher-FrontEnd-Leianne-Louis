@@ -1,0 +1,14 @@
+.schoolContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.school {
+    width: 30%;
+    border: red solid 1px;
+    margin: 10px;
+    text-align: left;
+    padding: 5px;
+    background-color: #E5DABD;
+}

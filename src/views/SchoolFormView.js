@@ -35,4 +35,4 @@ class SchoolFormView extends Component {
     }
 }
 
-export default withRouter(connect(null, {createSchool, getSchools})(SchoolFormView));
+export default withRouter(connect(null, {createSchool, getSchools })(SchoolFormView));
