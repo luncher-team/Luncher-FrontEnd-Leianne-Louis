@@ -1,10 +1,8 @@
 import React from 'react';
 
 const MyList = props => {
-    console.log(props)
     if(props.schools){
         const schools = props.schools.filter(e => e.admin_id === parseInt(localStorage.getItem('userid')))
-        console.log(schools)
         if(schools.length > 0) {
             return (
                 <>

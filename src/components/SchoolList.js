@@ -6,6 +6,7 @@ const SchoolList = props => {
             return (
                 <>
                 <button onClick={e => props.mySchools(e)}>View My Schools</button>
+                    
                     {props.schools.map(school => 
                       <div key={school.id}>
                           <p>school: {school.name}</p>

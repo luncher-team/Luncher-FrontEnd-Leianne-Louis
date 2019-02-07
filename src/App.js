@@ -11,8 +11,6 @@ import SchoolFormView from './views/SchoolFormView';
 
 class App extends Component {
   render() {
-    console.log(this.props)
-
     return (
       <div className="App">
         <Route exact path='/schools' render={props => <SchoolListView {...props}  userId={this.props.userId} />} />

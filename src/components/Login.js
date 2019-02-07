@@ -1,7 +1,7 @@
 import React from "react";
+import { Button } from 'reactstrap';
 
 const Login = props => {
-  console.log(props)
   if(props.isRegistering){
     return (
       <>
@@ -10,7 +10,7 @@ const Login = props => {
           <input type='text' name='username' onChange={props.handleChanges} value={props.username} placeholder='username'/>
           <input type='text' name='password'  onChange={props.handleChanges}  value={props.password} placeholder='password'/>
           <input type='text' name='email'  onChange={props.handleChanges}  value={props.email} placeholder='email'/>
-          <button>Next</button>
+          <Button>Next</Button>
       </form>
       <button onClick={e => props.loginSelected(e)}>Log in</button>
     </>

@@ -27,7 +27,11 @@ export const createSchool = schoolInfo => dispatch => {
     }
     dispatch({ type: CREATE_SCHOOL_START })
         axios.post(`https://luncher-app-backend.herokuapp.com/schools/`, schoolInfo, reqOptions)
-            .then(res => dispatch({ type: CREATE_SCHOOL_SUCCESS, payload: res.data }))
+            .then(res => {
+                dispatch({ type: CREATE_SCHOOL_SUCCESS, payload: res.data })
+                window.location.href = '/schools'
+
+            })
             .catch(err => dispatch({ type: CREATE_SCHOOL_FAILED, payload: err }))
 }
 
@@ -47,7 +51,6 @@ export const UPDATE_SCHOOL_SUCCESS = 'UPDATE_SCHOOL_SUCCESS';
 export const UPDATE_SCHOOL_FAILED = 'UPDATE_SCHOOL_FAILED';
 
 export const updateSchool = (updatedInfo, id)=> dispatch => {
-    console.log(updatedInfo, id)
     const token = localStorage.getItem('token');
     const reqOptions = {
         headers: {
@@ -56,7 +59,11 @@ export const updateSchool = (updatedInfo, id)=> dispatch => {
     }
     dispatch({ type: UPDATE_SCHOOL_START })
         axios.put(`https://luncher-app-backend.herokuapp.com/schools/${id}`, updatedInfo, reqOptions)
-        .then(res => dispatch({ type: UPDATE_SCHOOL_SUCCESS, payload: res.data}))
+        .then(res => {
+            console.log(res.data)
+            dispatch({ type: UPDATE_SCHOOL_SUCCESS, payload: res.data})
+            window.location.href = '/schools'
+        })
         .catch(err => dispatch({ type: UPDATE_SCHOOL_FAILED, payload: err}))
 }
 
@@ -73,6 +80,9 @@ export const deleteSchool = id => dispatch => {
     }
     dispatch({ type: DELETE_SCHOOL_START })
         axios.delete(`https://luncher-app-backend.herokuapp.com/schools/${id}`, reqOptions)
-        .then(res => dispatch({ type: DELETE_SCHOOL_SUCCESS, payload: res.data, id: id}))
+        .then(res => {
+            dispatch({ type: DELETE_SCHOOL_SUCCESS, payload: res.data, id: id})
+            window.location.href = '/schools'
+        })
         .catch(err => dispatch({ type: DELETE_SCHOOL_FAILED, payload: err}))
 }

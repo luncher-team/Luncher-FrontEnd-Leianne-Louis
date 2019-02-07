@@ -88,7 +88,6 @@ const rootReducer = (state = initailState, action) => {
           error: ''
       }
     case UPDATE_SCHOOL_SUCCESS:
-    console.log(action.payload)
       return {
           ...state,
           schools: action.payload.data,
@@ -102,7 +101,6 @@ const rootReducer = (state = initailState, action) => {
       }
     case DELETE_SCHOOL_SUCCESS:
     const school = state.schools.data.filter(school => school.id !== action.id)
-    console.log(school)
       return {
           ...state,
           schools: school

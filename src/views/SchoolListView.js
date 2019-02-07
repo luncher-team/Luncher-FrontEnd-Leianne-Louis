@@ -12,7 +12,6 @@ class SchoolListView extends Component {
     }
     componentDidMount() {
         this.props.getSchools();
-        
     }
 
     donateSelected = (e, id) => {
@@ -26,7 +25,6 @@ class SchoolListView extends Component {
     }
 
     editSelected = (e, school) => {
-        e.preventDefault();
         console.log(school)
         this.props.getSchool(school.id)
         this.props.history.push(`/schools/${school.id}/edit`)
@@ -43,6 +41,7 @@ class SchoolListView extends Component {
         this.setState({ viewAllSchools: true })
     }
     render(){
+        this.props.schools && console.log(this.props.schools)
         if(this.state.viewAllSchools){
             return (
                 <SchoolList donateSelected={this.donateSelected} editSelected={this.editSelected} userId={this.props.userId} createSelected={this.createSelected} schools={this.props.schools} deleteSelected={this.deleteSelected} mySchools={this.mySchools}/>
@@ -57,8 +56,6 @@ class SchoolListView extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
-
     return {
         schools: state.schools.data
     }

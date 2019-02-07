@@ -15,7 +15,7 @@ class SchoolFormView extends Component {
     }
     
     componentDidMount() {
-
+        
     }
     handleChanges = e => {
         this.setState({
@@ -26,8 +26,6 @@ class SchoolFormView extends Component {
     createSchool = e => { 
         e.preventDefault()
         this.props.createSchool(this.state)
-        this.props.getSchools()
-        this.props.history.push('/schools')
     }
     
     render(){
