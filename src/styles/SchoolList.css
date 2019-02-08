@@ -4,11 +4,26 @@
     justify-content: center;
 }
 
+.schoolContainer button {
+    margin-right: 10px;
+}
 .school {
     width: 30%;
-    border: red solid 1px;
-    margin: 10px;
+    border: #1A1409 solid 1px;
     text-align: left;
-    padding: 5px;
     background-color: #E5DABD;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.school img {
+    width: 100%;
+}
+
+.school .info {
+    padding: 10px;
+}
+
+.funds {
+    color: red;
 }

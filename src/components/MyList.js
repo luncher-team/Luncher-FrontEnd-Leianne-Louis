@@ -7,22 +7,29 @@ const MyList = props => {
         if(schools.length > 0) {
             return (
                 <>
-                    <h2>My Schools</h2>
+                <h2>My Schools</h2>
+                <div className='schoolContainer'>
+                    
                     {schools.map(school => 
-                      <div key={school.id}>
-                          <h3>{school.name}</h3>
+                      <div className='school' key={school.id}>
+                      <div className='info'>
+                      <h3>{school.name}</h3>
                           <p>about: {school.description}</p>
                           <p>address: {school.address}</p>
                           <p>{school.city}</p>
                           <p>{school.state}</p>
                         <p>help us raise: {school.requested_funds}</p>
                         <p>donations so far: {school.donated}</p>
-                          <button onClick={e => props.donateSelected(e, school.id)}>Donate</button>
-                          <button onClick={e => props.editSelected(e, school)}>Edit</button>
-                          <button onClick={e => props.deleteSelected(e, school.id)}>Delete</button>
+                          <Button color='success' onClick={e => props.donateSelected(e, school.id)}>Donate</Button>
+                          <Button color='warning' onClick={e => props.editSelected(e, school)}>Edit</Button>
+                          <Button color='danger' onClick={e => props.deleteSelected(e, school.id)}>Delete</Button>
+                      </div>
+                          
                       </div>      
                     )}
-                    <button onClick={e => props.createSelected(e)}>Create A school</button>
+                    
+                </div>
+                <Button color='primary' onClick={e => props.createSelected(e)}>Create A school</Button>
                 </>
             )
     } else{

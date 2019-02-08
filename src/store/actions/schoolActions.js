@@ -42,7 +42,9 @@ export const FETCH_SCHOOL_SELECTED_FAILED = 'FETCH_SCHOOL_SELECTED_FAILED';
 export const getSchool = id => dispatch => {
     dispatch({ type: FETCH_SCHOOL_SELECTED_START })
         axios.get(`https://luncher-app-backend.herokuapp.com/schools/${id}`)
-            .then(res => dispatch({ type: FETCH_SCHOOL_SELECTED_SUCCESS, payload: res.data}))
+            .then(res => {
+                dispatch({ type: FETCH_SCHOOL_SELECTED_SUCCESS, payload: res.data})
+            })
             .catch(err => dispatch({ type: FETCH_SCHOOLS_FAILED, payload: err}))
 }
 
@@ -60,7 +62,6 @@ export const updateSchool = (updatedInfo, id)=> dispatch => {
     dispatch({ type: UPDATE_SCHOOL_START })
         axios.put(`https://luncher-app-backend.herokuapp.com/schools/${id}`, updatedInfo, reqOptions)
         .then(res => {
-            console.log(res.data)
             dispatch({ type: UPDATE_SCHOOL_SUCCESS, payload: res.data})
             window.location.href = '/'
         })

@@ -25,19 +25,19 @@ const Authenticate = App => Login =>{
 
     loginUser = (e, userinfo) => {
       e.preventDefault();
+      this.setState({ isLoggingIn: true})
       axios.post(`https://luncher-app-backend.herokuapp.com/api/login`, userinfo)
         .then(res => {
           this.setState({ loggedIn: true, token: res.data.token })
           localStorage.setItem("token", res.data.token)
           localStorage.setItem("userid", res.data.id)
-          this.props.history.push('/schools')
+          this.props.history.push('/')
         })
         .catch(err => alert('Theres an issue with your username and password'))
     }
 
     signUpUser = ( e, info) => {
       e.preventDefault();
-      console.log(info)
       if(info.username === '' || info.password === '' || info.email === '') {
         alert('Please fill in all of the information')
       } else {
@@ -46,7 +46,7 @@ const Authenticate = App => Login =>{
           this.setState({ loggedIn: true, token: res.data.token })
           localStorage.setItem("token", res.data.token)
           localStorage.setItem("userid", res.data.id)
-          this.props.history.push('/schools')
+          this.props.history.push('/')
         })
         .catch(err => alert('There is an issue with your sign up information please try again'))
       }
@@ -55,7 +55,6 @@ const Authenticate = App => Login =>{
     signUpSelected = (e) => {
       e.preventDefault();
       this.setState({ isRegistering: true, isLoggingIn: true})
-      console.log(true)
     }
     loginSelected = e => {
       e.preventDefault();

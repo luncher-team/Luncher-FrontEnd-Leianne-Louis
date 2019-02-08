@@ -49,7 +49,6 @@ const rootReducer = (state = initailState, action) => {
         isCreatingSchool: true
       };
     case CREATE_SCHOOL_SUCCESS:
-      console.log(state.schools)
       return {
         ...state,
         schools: [

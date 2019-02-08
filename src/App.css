@@ -52,19 +52,51 @@ header {
 }
 
 .createForm {
-  width: 50%;
-  margin: 30px auto;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.form-group {
+  width: 40%;
+  margin: 10px;
 }
 
+#addBtn {
+  width:  60%;
+  margin: 20px;
+}
+#updateBtn {
+  width:  60%;
+  margin: 20px;
+}
 .createForm label {
-  color: #81905A;
+  color: white;
   font-weight: 500;
   font-size: 30px;
+
 }
 
 .createForm input {
   color: #AE4110;
 }
+
 footer {
-  position: fixed;
+  display: flex;
+  background-color: #AE4110;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+  position: absolute;
+  bottom: 0
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+}
+
+.navlinks p {
+  margin: 20px;
 }

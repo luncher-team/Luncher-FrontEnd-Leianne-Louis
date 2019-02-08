@@ -8,9 +8,12 @@ import SchoolForm from '../components/SchoolForm';
 class SchoolFormView extends Component {
     state = {
         name: '',
-        description: '',
-        address: '',
         requested_funds: '',
+        address: '',
+        city: '',
+        state: '',
+        donated: '',
+        description: '',
         admin_id: parseInt(localStorage.getItem('userid'))
     }
     
@@ -25,7 +28,12 @@ class SchoolFormView extends Component {
 
     createSchool = e => { 
         e.preventDefault()
-        this.props.createSchool(this.state)
+        const info = this.state;
+        if(info.name === '' || info.requested_funds === '' ||info.address === ''||info.city === ''||info.state === ''||info.donated === ''||info.description === '') {
+            alert('Please fill in all fields')
+        } else {
+            this.props.createSchool(this.state)
+        }
     }
     
     render(){

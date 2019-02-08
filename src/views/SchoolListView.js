@@ -26,7 +26,6 @@ class SchoolListView extends Component {
     }
 
     editSelected = (e, school) => {
-        console.log(school)
         this.props.getSchool(school.id)
         this.props.history.push(`/schools/${school.id}/edit`)
     }
@@ -35,8 +34,6 @@ class SchoolListView extends Component {
     }
     
     render(){
-        console.log(this.props)
-        this.props.schools && console.log(this.props.schools)
         if(this.props.viewAllSchools){
             return (
                 <SchoolList donateSelected={this.donateSelected} editSelected={this.editSelected} userId={this.props.userId} createSelected={this.createSelected} schools={this.props.schools} deleteSelected={this.deleteSelected} mySchools={this.props.mySchools}/>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const LoginContainer = styled.div`
    width: 100%;
    margin: 0 auto;
-   font-family: 'Schoolbell', cursive;
+   
    background-color: green;
    height: 100vh;
    display: flex;

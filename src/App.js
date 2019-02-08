@@ -11,14 +11,14 @@ import SchoolFormView from './views/SchoolFormView';
 
 class App extends Component {
   state = {
-    viewAllSchools: true
   }
+  
   
   mySchools = (e) => {
     e.preventDefault()
-    if(window.location.href === 'http://localhost:3000/schools') {
+    if(window.location.href === 'http://localhost:3000/') {
       this.setState({ viewAllSchools: false })
-      console.log(this.props)
+
     } else {
       this.setState({ viewAllSchools: false })
       window.location.href = '/'
@@ -27,7 +27,7 @@ class App extends Component {
   
   allSchools = (e) => {
       e.preventDefault()
-      if(window.location.href === 'http://localhost:3000/schools') {
+      if(window.location.href === 'http://localhost:3000/') {
         this.setState({ viewAllSchools: true })
       } else {
         this.setState({ viewAllSchools: true })
@@ -37,14 +37,15 @@ class App extends Component {
   }
   render() {
     return (
+    
       <>
       <header>
           <h2>luncher</h2>
           <div id='navlinks'>
-          <NavLink to='/' onClick={(e) => this.allSchools(e)} component={SchoolListView} >all schools</NavLink>
+          <NavLink to='/' onClick={(e) => this.allSchools(e)} >all schools</NavLink>
           <br/>
-          <NavLink exact to='/'  onClick={(e) => this.mySchools(e)} component={SchoolListView} >my schools</NavLink>
-          <NavLink to='/schools/create' component={SchoolFormView} >create a school</NavLink>
+          <NavLink to='/' onClick={(e) => this.mySchools(e)}   >my schools</NavLink>
+          <NavLink to='/schools/create'  >create a school</NavLink>
           </div>
           
         </header>
@@ -57,11 +58,21 @@ class App extends Component {
       </div>
       <footer>
           <h2>luncher</h2>
-          <div id='navlinks'>
-          <NavLink to='/' onClick={(e) => this.allSchools(e)} component={SchoolListView} >all schools</NavLink>
-          <br/>
-          <NavLink exact to='/'  onClick={(e) => this.mySchools(e)} component={SchoolListView} >my schools</NavLink>
-          <NavLink to='/schools/create' component={SchoolFormView} >create a school</NavLink>
+          <div >
+          <section class="contact" id="contact">
+      <div class="navlinks">
+        <h3>Contact Us</h3>
+        <p class=" text" id="mapid">
+          get@luncher.app
+        </p>
+        <p class="social-text">Follow us on Twitter!</p>
+        <p class=" text" id="mapid">
+          1-800-YUM-GIFT
+        </p>
+        <p class="social-text">Be our patrons on Patreon!</p>
+        <p class="social-text">Share this page!</p>
+      </div>
+    </section>
           </div>
           
         </footer>
