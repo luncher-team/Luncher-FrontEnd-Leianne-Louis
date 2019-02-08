@@ -11,7 +11,7 @@ import SchoolFormView from './views/SchoolFormView';
 
 class App extends Component {
   state = {
-    
+    viewAllSchools: true
   }
   
   mySchools = (e) => {

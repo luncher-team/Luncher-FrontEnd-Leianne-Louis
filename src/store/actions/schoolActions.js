@@ -29,7 +29,7 @@ export const createSchool = schoolInfo => dispatch => {
         axios.post(`https://luncher-app-backend.herokuapp.com/schools/`, schoolInfo, reqOptions)
             .then(res => {
                 dispatch({ type: CREATE_SCHOOL_SUCCESS, payload: res.data })
-                window.location.href = '/schools'
+                window.location.href = '/'
 
             })
             .catch(err => dispatch({ type: CREATE_SCHOOL_FAILED, payload: err }))
@@ -62,7 +62,7 @@ export const updateSchool = (updatedInfo, id)=> dispatch => {
         .then(res => {
             console.log(res.data)
             dispatch({ type: UPDATE_SCHOOL_SUCCESS, payload: res.data})
-            window.location.href = '/schools'
+            window.location.href = '/'
         })
         .catch(err => dispatch({ type: UPDATE_SCHOOL_FAILED, payload: err}))
 }
@@ -82,7 +82,7 @@ export const deleteSchool = id => dispatch => {
         axios.delete(`https://luncher-app-backend.herokuapp.com/schools/${id}`, reqOptions)
         .then(res => {
             dispatch({ type: DELETE_SCHOOL_SUCCESS, payload: res.data, id: id})
-            window.location.href = '/schools'
+            window.location.href = '/'
         })
         .catch(err => dispatch({ type: DELETE_SCHOOL_FAILED, payload: err}))
 }
