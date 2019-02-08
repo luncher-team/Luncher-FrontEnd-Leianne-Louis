@@ -42,16 +42,16 @@ class App extends Component {
       <header>
           <h2>luncher</h2>
           <div id='navlinks'>
-          <NavLink to='/schools' onClick={(e) => this.allSchools(e)} component={SchoolListView} >all schools</NavLink>
+          <NavLink to='/' onClick={(e) => this.allSchools(e)} component={SchoolListView} >all schools</NavLink>
           <br/>
-          <NavLink exact to='/schools'  onClick={(e) => this.mySchools(e)} component={SchoolListView} >my schools</NavLink>
+          <NavLink exact to='/'  onClick={(e) => this.mySchools(e)} component={SchoolListView} >my schools</NavLink>
           <NavLink to='/schools/create' component={SchoolFormView} >create a school</NavLink>
           </div>
           
         </header>
       <div className="App">
         
-        <Route exact path='/schools' render={props => <SchoolListView {...props}  mySchool={this.mySchools} allSchools={this.allSchools} viewAllSchools={this.state.viewAllSchools} userId={this.props.userId} />} />
+        <Route exact path='/' render={props => <SchoolListView {...props}  mySchool={this.mySchools} allSchools={this.allSchools} viewAllSchools={this.state.viewAllSchools} userId={this.props.userId} />} />
         <Route exact path='/schools/create' render={props => <SchoolFormView {...props}  userId={this.props.userId} />} />
         <Route exact path='/schools/:id/edit' render={props => <UpdateSchoolView {...props}  userId={this.props.userId} />} />
 
@@ -59,9 +59,9 @@ class App extends Component {
       <footer>
           <h2>luncher</h2>
           <div id='navlinks'>
-          <NavLink to='/schools' onClick={(e) => this.allSchools(e)} component={SchoolListView} >all schools</NavLink>
+          <NavLink to='/' onClick={(e) => this.allSchools(e)} component={SchoolListView} >all schools</NavLink>
           <br/>
-          <NavLink exact to='/schools'  onClick={(e) => this.mySchools(e)} component={SchoolListView} >my schools</NavLink>
+          <NavLink exact to='/'  onClick={(e) => this.mySchools(e)} component={SchoolListView} >my schools</NavLink>
           <NavLink to='/schools/create' component={SchoolFormView} >create a school</NavLink>
           </div>
           
