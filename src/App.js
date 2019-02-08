@@ -20,7 +20,6 @@ class App extends Component {
       this.setState({ viewAllSchools: false })
       console.log(this.props)
     } else {
-      window.location.href = '/schools'
       this.setState({ viewAllSchools: false })
 
     }
@@ -32,7 +31,6 @@ class App extends Component {
       if(window.location.href === 'http://localhost:3000/schools') {
         this.setState({ viewAllSchools: true })
       } else {
-        window.location.href = '/schools'
         this.setState({ viewAllSchools: true })
   
       }
