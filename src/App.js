@@ -16,22 +16,22 @@ class App extends Component {
   
   mySchools = (e) => {
     e.preventDefault()
-    if(window.location.href === 'http://localhost:3000/') {
-      this.setState({ viewAllSchools: false })
-
-    } else {
+    if(window.location.href.includes('/schools/create')) {
       this.setState({ viewAllSchools: false })
       window.location.href = '/'
+    } else {
+      this.setState({ viewAllSchools: false })
     }
   }
   
   allSchools = (e) => {
       e.preventDefault()
-      if(window.location.href === 'http://localhost:3000/') {
-        this.setState({ viewAllSchools: true })
-      } else {
+      
+      if(window.location.href.includes('/schools/create')) {
         this.setState({ viewAllSchools: true })
         window.location.href = '/'
+      } else {
+        this.setState({ viewAllSchools: true })
       }
 
   }
