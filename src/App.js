@@ -21,9 +21,8 @@ class App extends Component {
       console.log(this.props)
     } else {
       this.setState({ viewAllSchools: false })
-
+      window.location.href = '/'
     }
-
   }
   
   allSchools = (e) => {
@@ -32,7 +31,7 @@ class App extends Component {
         this.setState({ viewAllSchools: true })
       } else {
         this.setState({ viewAllSchools: true })
-  
+        window.location.href = '/'
       }
 
   }
