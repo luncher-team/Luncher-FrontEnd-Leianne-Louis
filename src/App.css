@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   background-color: #81905A;
@@ -53,7 +54,7 @@ header {
 
 .createForm {
   width: 70%;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -68,6 +69,11 @@ header {
   margin: 20px;
 }
 #updateBtn {
+  width:  60%;
+  margin: 20px;
+}
+
+#donateBtn {
   width:  60%;
   margin: 20px;
 }
@@ -88,8 +94,11 @@ footer {
   justify-content: space-evenly;
   width: 100%;
   align-items: center;
-  position: absolute;
-  bottom: 0
+  position: fixed;
+  bottom: 0;
+  clear: both;
+    height: 40px;
+    margin-top: -40px;
 }
 
 .navlinks {

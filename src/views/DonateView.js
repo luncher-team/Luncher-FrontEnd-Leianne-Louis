@@ -1,37 +1,50 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { donateFunds } from '../store/actions';
-import Donate from '../components/Donate';
+import { donateFunds, getSchools } from "../store/actions";
+import Donate from "../components/Donate";
 class DonateView extends Component {
-
-    state={
-        donation: {
-            name: '',
-            amount: ''
-        }
-    }
-    handleChanges = e => {
-        this.setState({
-            donation: {
-                ...this.state.donation,
-                [e.target.name]: e.target.value
-            }
-        })
-        const id = parseInt(this.props.match.params.id)
-        this.props.donateFunds(id, this.state.donation)
-    }
-
-    donate = (e )=> {
-        e.preventDefault();
-        const id = parseInt(this.props.match.params.id)
-        this.props.donateFunds(id, this.state.donation)
-    }
-    render() {
-        return (
-            <Donate donation={this.state.donation} handleChanges={this.handleChanges} donate={this.donate}/>
-        )
-    }
+  state = {
+    name: "",
+    amount: "",
+    cc: "",
+    cvv: ""
+  };
+  handleChanges = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  componentWillMount() {
+    this.props.getSchools();
+  }
+  donate = e => {
+    e.preventDefault();
+    const id = parseInt(this.props.match.params.id);
+    const school = this.props.schools.find(school => school.id === id);
+    const donatedTtl = parseInt(school.donated) + parseInt(this.state.amount);
+    //this.props.donateFunds(id, donatedTtl)
+  };
+  render() {
+    return (
+      <Donate
+        {...this.props}
+        donation={this.state}
+        school={this.props.schools}
+        handleChanges={this.handleChanges}
+        donate={this.donate}
+      />
+    );
+  }
 }
 
-export default connect(null, { donateFunds })(DonateView);
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    schools: state.schools.data
+  };
+};
+export default connect(
+  null,
+  { donateFunds, getSchools }
+)(DonateView);

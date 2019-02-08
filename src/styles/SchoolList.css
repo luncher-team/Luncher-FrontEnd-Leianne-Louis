@@ -15,7 +15,13 @@
     border-radius: 5px;
     margin: 10px;
 }
+.school:last-child {
+    margin-bottom: 70px
+}
 
+.myschool:last-child {
+    margin-bottom: 60px
+}
 .school img {
     width: 100%;
 }
@@ -26,4 +32,12 @@
 
 .funds {
     color: red;
+}
+
+.pageheading {
+    color: white;
+    font-size: 70px;
+    margin: 20px 0;
+    padding-bottom: 5px; 
+    border-bottom: #E5DABD dashed 3px;
 }

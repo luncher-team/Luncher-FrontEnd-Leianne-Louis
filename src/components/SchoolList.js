@@ -5,6 +5,7 @@ const SchoolList = props => {
     if(props.schools){
             return (
                 <>
+                <h2 className='pageheading'>These schools need your help!</h2>
                 <div className='schoolContainer'>
                     {props.schools.map(school => 
                       <div className='school' key={school.id}>

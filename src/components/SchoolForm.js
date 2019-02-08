@@ -5,7 +5,7 @@ import React from "react";
 const SchoolForm = props => {
   return (
     <>
-    <h1>Create A School</h1>
+    <h1 className='pageheading' >Create A School</h1>
     <Form className="createForm" onSubmit={e => props.createSchool(e)}>
       <FormGroup>
         <Label>School Name</Label>

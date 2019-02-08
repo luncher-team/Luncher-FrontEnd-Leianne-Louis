@@ -11,7 +11,11 @@ import {
   UPDATE_SCHOOL_START,
   UPDATE_SCHOOL_SUCCESS,
   UPDATE_SCHOOL_FAILED,
-  DELETE_SCHOOL_SUCCESS
+  DELETE_SCHOOL_SUCCESS,
+  DONATE_START,
+  DONATE_SUCCESS,
+  DONATE_FAILED,
+
 } from "../actions";
 
 const initailState = {
@@ -98,11 +102,23 @@ const rootReducer = (state = initailState, action) => {
           ...state,
           error: action.payload
       }
-    case DELETE_SCHOOL_SUCCESS:
-    const school = state.schools.data.filter(school => school.id !== action.id)
+    case DONATE_START:
+      return {
+        ...state,
+        isUpdatingSchool: true,
+        error: ''
+      }
+    case DONATE_SUCCESS: 
+      return {
+        ...state,
+          schools: action.payload.data,
+          isUpdatingSchool: false,
+          error: ''
+      }
+    case DONATE_FAILED:
       return {
           ...state,
-          schools: school
+          error: action.payload
       }
     default:
       return state;

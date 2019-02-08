@@ -6,9 +6,9 @@ import Authenticate from './components/Authenticate';
 import LoginView from './views/LoginView';
 import { withRouter, NavLink, Link } from 'react-router-dom'
 import { Route } from 'react-router-dom';
-
+import Footer from './components/Footer'
 import SchoolFormView from './views/SchoolFormView';
-
+import DonateView from './views/DonateView';
 class App extends Component {
   state = {
   }
@@ -16,7 +16,7 @@ class App extends Component {
   
   mySchools = (e) => {
     e.preventDefault()
-    if(window.location.href.includes('/schools/create')) {
+    if(window.location.href.includes('/schools')) {
       this.setState({ viewAllSchools: false })
       window.location.href = '/'
     } else {
@@ -27,7 +27,7 @@ class App extends Component {
   allSchools = (e) => {
       e.preventDefault()
       
-      if(window.location.href.includes('/schools/create')) {
+      if(window.location.href.includes('/schools')) {
         this.setState({ viewAllSchools: true })
         window.location.href = '/'
       } else {
@@ -54,28 +54,9 @@ class App extends Component {
         <Route exact path='/' render={props => <SchoolListView {...props}  mySchool={this.mySchools} allSchools={this.allSchools} viewAllSchools={this.state.viewAllSchools} userId={this.props.userId} />} />
         <Route exact path='/schools/create' render={props => <SchoolFormView {...props}  userId={this.props.userId} />} />
         <Route exact path='/schools/:id/edit' render={props => <UpdateSchoolView {...props}  userId={this.props.userId} />} />
-
+        <Route exact path='/schools/:id/donate' render={props => <DonateView {...props} />} />
+      <Footer />
       </div>
-      <footer>
-          <h2>luncher</h2>
-          <div >
-          <section class="contact" id="contact">
-      <div class="navlinks">
-        <h3>Contact Us</h3>
-        <p class=" text" id="mapid">
-          get@luncher.app
-        </p>
-        <p class="social-text">Follow us on Twitter!</p>
-        <p class=" text" id="mapid">
-          1-800-YUM-GIFT
-        </p>
-        <p class="social-text">Be our patrons on Patreon!</p>
-        <p class="social-text">Share this page!</p>
-      </div>
-    </section>
-          </div>
-          
-        </footer>
       </>
     );
   }

@@ -7,11 +7,11 @@ const MyList = props => {
         if(schools.length > 0) {
             return (
                 <>
-                <h2>My Schools</h2>
+                <h2 className='pageheading' >My Schools</h2>
                 <div className='schoolContainer'>
                     
                     {schools.map(school => 
-                      <div className='school' key={school.id}>
+                      <div className='school myschool' key={school.id}>
                       <div className='info'>
                       <h3>{school.name}</h3>
                           <p>about: {school.description}</p>
@@ -29,7 +29,7 @@ const MyList = props => {
                     )}
                     
                 </div>
-                <Button color='primary' onClick={e => props.createSelected(e)}>Create A school</Button>
+                
                 </>
             )
     } else{
