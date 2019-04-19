@@ -11,7 +11,7 @@ const Authenticate = App => Login =>{
         loggedIn: false,
         token: null,
         userId: null,
-        isRegistering: true,
+        isRegistering: false,
         isLoggingIn: true
       };
     }
@@ -25,12 +25,19 @@ const Authenticate = App => Login =>{
 
     loginUser = (e, userinfo) => {
       e.preventDefault();
-      this.setState({ isLoggingIn: true})
+      this.setState({
+        ...this.state, 
+        isLoading: true
+      })
       axios.post(`https://luncher-app-backend.herokuapp.com/api/login`, userinfo)
         .then(res => {
           this.setState({ loggedIn: true, token: res.data.token })
           localStorage.setItem("token", res.data.token)
           localStorage.setItem("userid", res.data.id)
+          this.setState({
+            ...this.state,
+            isLoading: false
+          })
           this.props.history.push('/')
         })
         .catch(err => alert('Theres an issue with your username and password'))
@@ -62,7 +69,7 @@ const Authenticate = App => Login =>{
     }
     render() {
       if (this.state.loggedIn) return <App userId={this.state.userId}/>;
-      if(this.state.isLoggingIn) return <LoginView signUpUser={this.signUpUser} signUpSelected={this.signUpSelected} loginSelected={this.loginSelected} isRegistering={this.state.isRegistering} loginUser={this.loginUser} />;
+      if(this.state.isLoggingIn) return <LoginView signUpUser={this.signUpUser} signUpSelected={this.signUpSelected} isLoading={this.state.isLoading} loginSelected={this.loginSelected} isRegistering={this.state.isRegistering} loginUser={this.loginUser} />;
     
 
     }

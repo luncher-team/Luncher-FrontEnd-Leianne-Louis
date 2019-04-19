@@ -4,6 +4,7 @@ import {LoginContainer, Form } from '../styles/LoginStyles'
 import '../styles/Login.css'
 const Login = props => {
   if(props.isRegistering){
+    {console.log(props.isLoading)}
     return (
       
       <LoginContainer >
@@ -21,7 +22,10 @@ const Login = props => {
     </LoginContainer>
     )
   } else {
+    {console.log(props.isLoading)}
+
     return (
+      
       <LoginContainer  >
         <div className='loginContainer'>
         

@@ -24,7 +24,7 @@ class LoginView extends Component {
   };
 
   render() {
-    
+    console.log(this.props.isLoading)
     if (this.props.isLoggingIn) {
       return (
           <h1>LOADING</h1>
@@ -39,6 +39,7 @@ class LoginView extends Component {
           signUpSelected={this.props.signUpSelected}
           handleChanges={this.handleChanges}
           login={this.state}
+          
           signUpUser={this.props.signUpUser}
         />
       );
